@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      DATABASE_URL: sqlite:////app/chess.db
+      JWT_SECRET: ${JWT_SECRET:-local-development-secret-change-before-production}
+      DATA_ENCRYPTION_KEY: ${DATA_ENCRYPTION_KEY:-}
+      PUBLIC_API_URL: ${PUBLIC_API_URL:-http://localhost:8000}
+      SMTP_HOST: ${SMTP_HOST:-mailpit}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_FROM: ${SMTP_FROM:-no-reply@chess.local}
+    depends_on:
+      - mailpit
+  mailpit:
+    image: axllent/mailpit:v1.27
+    ports:
+      - "8025:8025"

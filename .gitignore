@@ -1,0 +1,24 @@
+# Flutter and Dart generated files
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# Local backend data and Python caches
+backend/chess.db
+backend/chess.db-*
+backend/app/__pycache__/
+*.py[cod]
+
+# IDE and operating-system files
+.idea/
+*.iml
+.DS_Store
+.env
+android/local.properties
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/ephemeral/
+macos/Flutter/GeneratedPluginRegistrant.swift
+macos/Flutter/ephemeral/
